@@ -13,6 +13,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 builder.Services.AddCors();
+// Register the TokenService as a scoped dependency for ITokenService
 builder.Services.AddScoped<ITokenService, TokenService>();
 var app = builder.Build();
 
