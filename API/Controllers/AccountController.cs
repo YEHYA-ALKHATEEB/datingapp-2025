@@ -32,7 +32,6 @@ public class AccountController(AppDbContext context, ITokenService tokenService)
 
         await context.SaveChangesAsync();
         return user.ToDto(tokenService);
-
     }
 
     [HttpPost("login")]
