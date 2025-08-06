@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RegisterCredentials, User } from '../../../types/user';
 
@@ -9,7 +9,10 @@ import { RegisterCredentials, User } from '../../../types/user';
   styleUrl: './register.css'
 })
 export class Register {
-   membersFromHome = input.required<User[]>();
+  membersFromHome = input.required<User[]>();
+
+  cancelRegister = output<boolean>();
+
  protected credentials = {} as RegisterCredentials;
  
  register() {
@@ -18,7 +21,6 @@ export class Register {
  }
 
  cancel() {
-  console.log('cancelled');
-  // Reset the form or perform any other necessary actions
+  this.cancelRegister.emit(false);
  }
 }
