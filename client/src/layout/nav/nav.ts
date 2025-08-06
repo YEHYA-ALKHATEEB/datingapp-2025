@@ -9,25 +9,21 @@ import { AccountService } from '../../core/services/account-service';
   styleUrl: './nav.css'
 })
 export class Nav {
-  private accountService = inject(AccountService);
+  protected accountService = inject(AccountService);
   protected credentials: any = {}
-  protected loggedIn = signal(false);
 
   login() {
     this.accountService.login(this.credentials).subscribe({
       next: response => {
         console.log('Login successful', response);
-        this.loggedIn.set(true);
+        this.credentials = {};
       },
       error: error => alert(error.message),
-      complete: () => {
-        console.log('Login request completed');
-      }
+     
     })
   }
 
   logout() {
-    this.loggedIn.set(false);
-    console.log('Logged out');
+    this.accountService.logout();
   }
 }
