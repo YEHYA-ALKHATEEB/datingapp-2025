@@ -9,6 +9,7 @@ import { AccountService } from '../../../core/services/account-service';
   templateUrl: './register.html',
   styleUrl: './register.css'
 })
+
 export class Register {
 private accountService = inject(AccountService);
   cancelRegister = output<boolean>();
