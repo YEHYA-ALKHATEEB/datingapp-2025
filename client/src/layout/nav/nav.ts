@@ -17,7 +17,7 @@ export class Nav {
   protected credentials: any = {}
   login() {
     this.accountService.login(this.credentials).subscribe({
-      next: response => {
+      next: () => {
         this.router.navigateByUrl('/members');
         this.toast.success('Login successful');
         this.credentials = {};
