@@ -19,6 +19,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddCors();
 // Register the TokenService as a scoped dependency for ITokenService
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 .AddJwtBearer(options =>
 {
